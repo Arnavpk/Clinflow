@@ -1,25 +1,52 @@
 {
   "expo": {
-    "name": "trisetu-rn",
-    "slug": "trisetu-rn",
+    "name": "TriSetu",
+    "slug": "trisetu-cms",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.trisetu.cms",
+      "infoPlist": {
+        "LSApplicationQueriesSchemes": [
+          "whatsapp",
+          "sms",
+          "mailto"
+        ]
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#0c2721",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.trisetu.cms"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sharing",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "TriSetu needs photo access to upload your clinic logo.",
+          "cameraPermission": false,
+          "microphonePermission": false
+        }
+      ]
+    ],
+    "scheme": "trisetu",
+    "experiments": {
+      "typedRoutes": false
     }
   }
 }
